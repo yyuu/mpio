@@ -1,0 +1,33 @@
+Source: mpio
+Priority: extra
+Maintainer: Yamashita Yuu <yamashita@geishatokyo.com>
+Build-Depends: debhelper (>= 8.0.0),
+  autoconf,
+  automake,
+  libtool,
+  libstdc++6,
+  ruby,
+  quilt,
+Standards-Version: 3.9.2
+Section: libs
+Homepage: https://github.com/frsyuki/mpio
+Vcs-Git: git://github.com/frsyuki/mpio.git
+Vcs-Browser: https://github.com/frsyuki/mpio
+
+Package: libmpio-dev
+Section: libdevel
+Architecture: any
+Depends: libmpio0 (= ${binary:Version}),
+  libstdc++6-4.6-dev,
+Description: Multipurpose parallel I/O framework for C++
+ with fully multithreaded event loop implementation
+ .
+ This package contains header files.
+
+Package: libmpio0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+  libstdc++6,
+Description: Multipurpose parallel I/O framework for C++
+ with fully multithreaded event loop implementation

@@ -10,8 +10,28 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ 
+	dh $@
 
 override_dh_auto_configure:
 	test -f ./configure || RUBYLIB=. ./bootstrap
 	./configure --prefix=/usr
+
+override_dh_auto_clean:
+	dh_auto_clean
+	$(RM) -f \
+		INSTALL \
+		Makefile.in \
+		NEWS \
+		README \
+		aclocal.m4 \
+		config.h.in \
+		configure \
+		debian/.rules.swp \
+		mp/Makefile.in \
+		mp/object_callback.h \
+		mp/sparse_array.h \
+		mp/sync.h \
+		mp/wavy.h \
+		mpsrc/Makefile.in \
+		test/Makefile.in \
+		$(NULL)
